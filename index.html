@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformez Votre Espace avec Décormoi</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Lien vers un fichier CSS externe -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("VTM1-Hyq0tiu0asBe"); // Remplacez par votre clé publique
+        })();
+        
+        function sendEmail(e) {
+            e.preventDefault();
+            emailjs.sendForm('service_sx2toyl', 'template_behglaa', e.target)
+                .then(() => {
+                    alert('Votre devis a été envoyé avec succès !');
+                }, (error) => {
+                    alert('Échec de l\'envoi du devis : ' + JSON.stringify(error));
+                });
+        }
+
+        function openModal(src) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("img01");
+            modal.style.display = "block";
+            modalImg.src = src;
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('images/arrière-plan.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .navbar {
+            background-color: #d4af37; /* Couleur dorée */
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar img {
+            width: 120px;
+            height: auto;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 2.5em;
+            color: #333;
+        }
+        .group-image {
+            width: 250px;
+            height: auto;
+            margin: 20px;
+            border-radius: 10px; /* Coins arrondis pour les images */
+            transition: transform 0.3s; /* Animation de zoom au survol */
+            cursor: pointer;
+        }
+        .group-image:hover {
+            transform: scale(1.05); /* Zoom sur l'image au survol */
+        }
+        .devis {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .devis button {
+            padding: 10px 25px;
+            background-color: #d4af37; /* Couleur dorée */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .devis input, .devis textarea {
+            width: 80%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        footer {
+            background-color: #d4af37; /* Couleur dorée pour le footer */
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+        }
+        footer a {
+            color: black;
+            text-decoration: none;
+            padding: 0 10px;
+            transition: color 0.3s;
+        }
+        footer a:hover {
+            color: #555;
+        }
+        /* Styles pour l'agrandissement */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        .modal img {
+            margin: auto;
+            display: block;
+            width: auto;
+            max-width: 90%;
+            max-height: 90%;
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: #bbb;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+            .group-image {
+                width: 90%; /* Réduire la taille des images sur mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar avec le logo -->
+<div class="navbar">
+    <img src="images/logo.jpg" alt="Logo Décormoi">
+</div>
+
+<!-- Titre personnalisé de la page -->
+<h1>Transformez Votre Espace</h1>
+
+<!-- Groupes d'images cliquables -->
+<div style="display: flex; flex-wrap: wrap; justify-content: center;">
+    <img src="images/image1a.jpg" alt="Groupe 1" class="group-image" onclick="openModal(this.src)">
+    <img src="images/image2.jpg" alt="Groupe 2" class="group-image" onclick="openModal(this.src)">
+    <img src="images/image3c.jpg" alt="Groupe 3" class="group-image" onclick="openModal(this.src)">
+    <img src="images/image4c.jpg" alt="Groupe 4" class="group-image" onclick="openModal(this.src)">
+    <img src="images/image5b.jpg" alt="Groupe 5" class="group-image" onclick="openModal(this.src)">
+    <img src="images/image6.jpg" alt="Groupe 6" class="group-image" onclick="openModal(this.src)">
+</div>
+
+<!-- Modal pour l'agrandissement des images -->
+<div id="myModal" class="modal" onclick="closeModal()">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="img01">
+</div>
+
+<!-- Section Devis Gratuit -->
+<div class="devis">
+    <h2>Demandez un Devis Gratuit</h2>
+    <form onsubmit="sendEmail(event)">
+        <input type="text" name="name" placeholder="Votre nom" required>
+        <input type="email" name="email" placeholder="Votre email" required>
+        <textarea name="message" placeholder="Votre message" required></textarea>
+        <button type="submit">Envoyer</button>
+    </form>
+</div>
+
+<!-- Footer avec les informations de contact et les icônes des réseaux sociaux -->
+<footer>
+    <a href="mailto:decormoi77@gmail.com">decormoi77@gmail.com</a>
+    <a href="mailto:gutihause@gmail.com">gutihause@gmail.com</a>
+    <a href="https://www.instagram.com/decormoi__" target="_blank">Instagram</a>
+    <a href="https://www.facebook.com/profile.php?id=100095484092149&mibextid=LQQJ4d&_rdc=1&_rdr" target="_blank">Facebook</a>
+    <a href="tel:+212722305480">+212722305480</a>
+</footer>
+
+</body>
+</html>
