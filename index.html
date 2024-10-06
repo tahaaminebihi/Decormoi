@@ -5,15 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transformez Votre Espace avec Décormoi</title>
     <link rel="stylesheet" href="styles.css"> <!-- Lien vers un fichier CSS externe -->
+
+    <!-- Google AdSense Script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4857204221325734" crossorigin="anonymous"></script>
+    
+    <!-- Meta Tag for Google AdSense -->
+    <meta name="google-adsense-account" content="ca-pub-4857204221325734">
+    
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
         (function(){
-            emailjs.init("1ETa7udEROC__mJM3"); // Remplacez par votre clé publique
+            emailjs.init("VTM1-Hyq0tiu0asBe"); // Remplacez par votre clé publique
         })();
         
         function sendEmail(e) {
             e.preventDefault();
-            emailjs.sendForm('service_hiw8ssb', 'template_dnzu70r', e.target)
+            emailjs.sendForm('service_sx2toyl', 'template_behglaa', e.target)
                 .then(() => {
                     alert('Votre devis a été envoyé avec succès !');
                 }, (error) => {
@@ -38,7 +45,7 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background: url('images/arrière-plan3.jpg') no-repeat center center fixed;
+            background: url('images/arrière-plan.jpg') no-repeat center center fixed;
             background-size: cover;
             display: flex;
             flex-direction: column;
@@ -194,9 +201,6 @@
     <a href="tel:+212722305480">+212722305480</a>
 </footer>
 
-<!-- Script AdSense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4857204221325734"
-     crossorigin="anonymous"></script>
-
 </body>
 </html>
+
