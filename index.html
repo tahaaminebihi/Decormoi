@@ -3,24 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-adsense-account" content="ca-pub-4857204221325734"> <!-- Balise Google AdSense -->
     <title>Transformez Votre Espace avec Décormoi</title>
     <link rel="stylesheet" href="styles.css"> <!-- Lien vers un fichier CSS externe -->
-
-    <!-- Google AdSense Script -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4857204221325734" crossorigin="anonymous"></script>
-    
-    <!-- Meta Tag for Google AdSense -->
-    <meta name="google-adsense-account" content="ca-pub-4857204221325734">
-    
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
         (function(){
-            emailjs.init("VTM1-Hyq0tiu0asBe"); // Remplacez par votre clé publique
+            emailjs.init("VTM1-Hyq0tiu0asBe"); // Remplacez par votre clé publique EmailJS
         })();
         
         function sendEmail(e) {
             e.preventDefault();
-            emailjs.sendForm('service_sx2toyl', 'template_behglaa', e.target)
+            emailjs.sendForm('service_hiw8ssb', 'template_dnzu70r', e.target)
                 .then(() => {
                     alert('Votre devis a été envoyé avec succès !');
                 }, (error) => {
@@ -42,46 +36,40 @@
     </script>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: url('images/arrière-plan3.jpg') no-repeat center center fixed;
-            background-size: cover;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            background-image: url('images/arrière-plan3.jpg'); /* Utiliser l'image d'arrière-plan */
+            background-size: cover; /* Couvrir toute la page */
+            background-position: center; /* Centrer l'image */
+            color: white; /* Texte en blanc pour contraste */
         }
         .navbar {
             background-color: #d4af37; /* Couleur dorée */
-            padding: 15px;
+            padding: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         .navbar img {
-            width: 120px;
+            width: 100px;
             height: auto;
         }
         h1 {
             text-align: center;
             margin-top: 50px;
             font-size: 2.5em;
-            color: #333;
-        }
-        .group-image {
-            width: 250px;
-            height: auto;
-            margin: 20px;
-            border-radius: 10px; /* Coins arrondis pour les images */
-            transition: transform 0.3s; /* Animation de zoom au survol */
-            cursor: pointer;
-        }
-        .group-image:hover {
-            transform: scale(1.05); /* Zoom sur l'image au survol */
         }
         .devis {
             text-align: center;
             margin: 40px 0;
+        }
+        .devis input, .devis textarea {
+            width: 80%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
         .devis button {
             padding: 10px 25px;
@@ -91,29 +79,29 @@
             cursor: pointer;
             font-size: 1em;
         }
-        .devis input, .devis textarea {
-            width: 80%;
-            padding: 10px;
-            margin: 5px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+        .group-image {
+            width: 200px;
+            height: auto;
+            margin: 20px;
+            cursor: pointer;
+            border-radius: 10px; /* Coins arrondis pour les images */
+            transition: transform 0.3s; /* Animation de zoom au survol */
+        }
+        .group-image:hover {
+            transform: scale(1.05); /* Zoom sur l'image au survol */
         }
         footer {
             background-color: #d4af37; /* Couleur dorée pour le footer */
             text-align: center;
-            padding: 20px;
-            margin-top: auto;
+            padding: 10px;
+            color: black;
         }
         footer a {
             color: black;
             text-decoration: none;
             padding: 0 10px;
-            transition: color 0.3s;
         }
-        footer a:hover {
-            color: #555;
-        }
-        /* Styles pour l'agrandissement */
+        /* Styles pour le modal */
         .modal {
             display: none;
             position: fixed;
@@ -145,27 +133,30 @@
         .close:hover {
             color: #bbb;
         }
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2em;
-            }
-            .group-image {
-                width: 90%; /* Réduire la taille des images sur mobile */
-            }
-        }
     </style>
 </head>
 <body>
 
 <!-- Navbar avec le logo -->
 <div class="navbar">
-    <img src="images/logo.jpg" alt="Logo Décormoi">
+    <img src="images/logo.jpg" alt="Logo Décormoi"> <!-- Chemin vers votre logo -->
 </div>
 
 <!-- Titre personnalisé de la page -->
-<h1>Transformez Votre Espace</h1>
+<h1>Transformez Votre Espace avec Style</h1>
 
-<!-- Groupes d'images cliquables -->
+<!-- Section Devis Gratuit -->
+<div class="devis">
+    <h2>Demandez un Devis Gratuit</h2>
+    <form onsubmit="sendEmail(event)">
+        <input type="text" name="name" placeholder="Votre nom" required>
+        <input type="email" name="email" placeholder="Votre email" required>
+        <textarea name="message" placeholder="Votre message" required></textarea>
+        <button type="submit">Envoyer</button>
+    </form>
+</div>
+
+<!-- Images cliquables -->
 <div style="display: flex; flex-wrap: wrap; justify-content: center;">
     <img src="images/image1a.jpg" alt="Groupe 1" class="group-image" onclick="openModal(this.src)">
     <img src="images/image2.jpg" alt="Groupe 2" class="group-image" onclick="openModal(this.src)">
@@ -181,26 +172,27 @@
     <img class="modal-content" id="img01">
 </div>
 
-<!-- Section Devis Gratuit -->
-<div class="devis">
-    <h2>Demandez un Devis Gratuit</h2>
-    <form onsubmit="sendEmail(event)">
-        <input type="text" name="name" placeholder="Votre nom" required>
-        <input type="email" name="email" placeholder="Votre email" required>
-        <textarea name="message" placeholder="Votre message" required></textarea>
-        <button type="submit">Envoyer</button>
-    </form>
-</div>
+<!-- Bloc d'annonce AdSense -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4857204221325734"
+     data-ad-slot="1234567890"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 <!-- Footer avec les informations de contact et les icônes des réseaux sociaux -->
 <footer>
-    <a href="mailto:decormoi77@gmail.com">decormoi77@gmail.com</a>
-    <a href="mailto:gutihause@gmail.com">gutihause@gmail.com</a>
+    <p>Contactez-nous : +212722305480</p>
+    <p>Email : <a href="mailto:decormoi77@gmail.com">decormoi77@gmail.com</a></p>
     <a href="https://www.instagram.com/decormoi__" target="_blank">Instagram</a>
     <a href="https://www.facebook.com/profile.php?id=100095484092149&mibextid=LQQJ4d&_rdc=1&_rdr" target="_blank">Facebook</a>
-    <a href="tel:+212722305480">+212722305480</a>
 </footer>
+
+<!-- Script Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4857204221325734" crossorigin="anonymous"></script>
 
 </body>
 </html>
-
