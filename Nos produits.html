@@ -5,54 +5,137 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nos Produits - Décormoi</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="lightbox.css"> <!-- Lien vers le CSS de Lightbox -->
+    <style>
+        /* CSS pour la page Nos Produits */
+        body {
+            font-family: Arial, sans-serif;
+            color: #FFFFFF;
+            background-image: url('images/background.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .header img {
+            height: 60px;
+        }
+
+        nav {
+            display: flex;
+        }
+
+        nav a {
+            color: #FFFFFF;
+            text-decoration: none;
+            margin-left: 15px;
+            padding: 10px 20px;
+            background-color: #FF5733;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #C70039;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .gallery img {
+            width: 30%;
+            margin: 1%;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Style pour agrandir l'image */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+    </style>
 </head>
 <body>
-    <!-- En-tête avec le logo et la navigation -->
     <div class="header">
         <img src="images/logo.png" alt="Logo Décormoi">
         <nav>
-            <div class="nav-links">
-                <a href="index.html" class="cta-button">Accueil</a>
-                <a href="Nos produits.html" class="cta-button">Nos produits</a>
-            </div>
+            <a href="index.html" class="cta-button">Accueil</a>
+            <a href="en-savoir-plus.html" class="cta-button">En savoir plus</a>
             <a href="devis.html" class="cta-button">Demander un Devis Gratuit</a>
         </nav>
     </div>
 
-    <!-- Section des produits -->
-    <div class="products">
+    <div class="content">
         <h1>Nos Produits</h1>
         <div class="gallery">
-            <a href="images/image1.jpg" class="lightbox">
-                <img src="images/image1_thumb.jpg" alt="Image 1">
-            </a>
-            <a href="images/image2.jpg" class="lightbox">
-                <img src="images/image2_thumb.jpg" alt="Image 2">
-            </a>
-            <a href="images/image3.jpg" class="lightbox">
-                <img src="images/image3_thumb.jpg" alt="Image 3">
-            </a>
-            <a href="images/image4.jpg" class="lightbox">
-                <img src="images/image4_thumb.jpg" alt="Image 4">
-            </a>
-            <a href="images/image5.jpg" class="lightbox">
-                <img src="images/image5_thumb.jpg" alt="Image 5">
-            </a>
-            <a href="images/image6.jpg" class="lightbox">
-                <img src="images/image6_thumb.jpg" alt="Image 6">
-            </a>
-            <a href="images/image7.jpg" class="lightbox">
-                <img src="images/image7_thumb.jpg" alt="Image 7">
-            </a>
+            <img src="images/image1.jpg" alt="Image 1" onclick="showModal(this.src)">
+            <img src="images/image2.jpg" alt="Image 2" onclick="showModal(this.src)">
+            <img src="images/image3.jpg" alt="Image 3" onclick="showModal(this.src)">
+            <img src="images/image4.jpg" alt="Image 4" onclick="showModal(this.src)">
+            <img src="images/image5.jpg" alt="Image 5" onclick="showModal(this.src)">
+            <img src="images/image7.jpg" alt="Image 7" onclick="showModal(this.src)">
         </div>
     </div>
 
-    <!-- Pied de page -->
+    <div class="modal" id="modal" onclick="closeModal()">
+        <img id="modal-image" src="" alt="Agrandir l'image">
+    </div>
+
     <div class="footer">
         <p>Suivez-nous sur : <a href="https://www.instagram.com/decormoi__">Instagram</a> | <a href="https://www.facebook.com/profile.php?id=100095484092149&mibextid=LQQJ4d&_rdc=1&_rdr">Facebook</a></p>
     </div>
 
-    <script src="lightbox.js"></script> <!-- Lien vers le script JavaScript de Lightbox -->
+    <script>
+        function showModal(src) {
+            const modal = document.getElementById('modal');
+            const modalImage = document.getElementById('modal-image');
+            modalImage.src = src;
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.style.display = 'none';
+        }
+    </script>
 </body>
 </html>
