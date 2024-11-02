@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #FFFFFF;
+    background-image: url('images/background.jpg'); /* Garder l'arrière-plan existant */
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
+}
+
+.header-content nav {
+    margin-left: auto; /* Décale le menu vers la droite */
+}
+
+.header-content nav a {
+    color: #FFFFFF;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+h1, h2 {
+    color: #FFFFFF;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+p, li {
+    color: #FFFFFF;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #FFFFFF;
+    background-color: #FF5733;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+.cta-button:hover {
+    background-color: #C70039;
+}
+
+/* Styles pour la galerie */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.gallery img {
+    width: 200px; /* Taille d'image par défaut */
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.1); /* Agrandissement au survol */
+}
+
+/* Styles pour la lightbox */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox img {
+    width: 80%; /* Taille d'image en plein écran */
+    max-width: 800px; /* Limite la taille maximale de l'image */
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #FFFFFF;
+    margin-top: 50px; /* Espace au-dessus du pied de page */
+}

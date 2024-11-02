@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Produits - Décormoi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="images/logo.png" alt="Logo Décormoi">
+            <nav>
+                <a href="index.html" class="cta-button">Accueil</a>
+                <a href="devis.html" class="cta-button">Demander un Devis Gratuit</a>
+                <a href="en-savoir-plus.html" class="cta-button">En savoir plus</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h1>Nos Produits</h1>
+        <div class="gallery">
+            <img src="images/image1.jpg" alt="Image 1" onclick="openLightbox(this)">
+            <img src="images/image2.jpg" alt="Image 2" onclick="openLightbox(this)">
+            <img src="images/image3.jpg" alt="Image 3" onclick="openLightbox(this)">
+            <img src="images/image4.jpg" alt="Image 4" onclick="openLightbox(this)">
+            <img src="images/image5.jpg" alt="Image 5" onclick="openLightbox(this)">
+            <img src="images/image7.jpg" alt="Image 7" onclick="openLightbox(this)">
+        </div>
+
+        <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+            <img id="lightbox-image" src="" alt="Agrandissement">
+        </div>
+    </main>
+
+    <footer>
+        <p>Suivez-nous sur : <a href="https://www.instagram.com/decormoi__">Instagram</a> | <a href="https://www.facebook.com/profile.php?id=100095484092149&mibextid=LQQJ4d&_rdc=1&_rdr">Facebook</a></p>
+    </footer>
+
+    <script>
+        function openLightbox(img) {
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImage = document.getElementById("lightbox-image");
+            lightboxImage.src = img.src; // Définit la source de l'image dans la lightbox
+            lightbox.style.display = "flex"; // Affiche la lightbox
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById("lightbox");
+            lightbox.style.display = "none"; // Masque la lightbox
+        }
+    </script>
+</body>
+</html>
