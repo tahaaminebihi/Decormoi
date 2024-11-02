@@ -5,36 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demander un Devis - Décormoi</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        (function(){
+            emailjs.init("To04y4_9eKl_ilCVx"); // Initialiser avec votre clé publique
+        })();
+        
+        function sendEmail(event) {
+            event.preventDefault(); // Empêche le rechargement de la page
+            
+            const form = event.target;
+            const data = {
+                superficie: form.superficie.value,
+                email: form.email.value,
+                message: form.message.value,
+            };
+
+            emailjs.send("service_4f8exsb", "template_rwcvusa", data)
+                .then(() => {
+                    alert("Votre demande a été envoyée avec succès !");
+                    form.reset(); // Réinitialiser le formulaire après envoi
+                }, (error) => {
+                    alert("Une erreur est survenue, veuillez réessayer !");
+                    console.error("Échec de l'envoi de l'e-mail: ", error);
+                });
+        }
+    </script>
 </head>
-<body class="background-devis"> <!-- Ajout de la classe pour l'arrière-plan -->
-    <header>
-        <div class="header-content">
-            <img src="images/logo.png" alt="Logo Décormoi">
-            <nav>
+<body>
+    <!-- En-tête avec le logo et la navigation -->
+    <div class="header">
+        <img src="images/logo.png" alt="Logo Décormoi">
+        <nav>
+            <div class="nav-links">
                 <a href="index.html" class="cta-button">Accueil</a>
                 <a href="Nos produits.html" class="cta-button">Nos produits</a>
                 <a href="en-savoir-plus.html" class="cta-button">En savoir plus</a>
-            </nav>
-        </div>
-    </header>
+            </div>
+        </nav>
+    </div>
 
+    <!-- Section principale pour demander un devis -->
     <div class="content">
-        <h1>Demandez un Devis</h1>
-        <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
-            <label for="name">Nom :</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email :</label>
+        <h1>Demander un Devis Gratuit</h1>
+        <form onsubmit="sendEmail(event)">
+            <label for="superficie">Superficie de la cuisine (en m²) :</label>
+            <input type="number" id="superficie" name="superficie" required>
+
+            <label for="email">Votre adresse e-mail :</label>
             <input type="email" id="email" name="email" required>
-            <label for="superficie">Superficie de la cuisine :</label>
-            <input type="text" id="superficie" name="superficie" required>
-            <label for="message">Votre Message :</label>
-            <textarea id="message" name="message" required></textarea>
+
+            <label for="message">Message :</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
             <button type="submit" class="cta-button">Envoyer</button>
         </form>
     </div>
 
-    <footer>
+    <!-- Pied de page -->
+    <div class="footer">
         <p>Suivez-nous sur : <a href="https://www.instagram.com/decormoi__">Instagram</a> | <a href="https://www.facebook.com/profile.php?id=100095484092149&mibextid=LQQJ4d&_rdc=1&_rdr">Facebook</a></p>
-    </footer>
+    </div>
 </body>
 </html>
