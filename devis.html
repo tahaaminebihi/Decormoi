@@ -3,72 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demande de Devis - Décormoi</title>
+    <title>Demander un Devis - Décormoi</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
     <script>
-        // Initialiser EmailJS
-        (function() {
-            emailjs.init("To04y4_9eKl_ilCVx"); // Remplacez par votre clé publique
+        (function(){
+            emailjs.init("To04y4_9eKl_ilCVx"); // Votre clé publique
         })();
-
-        // Fonction pour envoyer l'email
-        function sendEmail(event) {
-            event.preventDefault(); // Empêche le rechargement de la page
-
-            // Récupérer les valeurs des champs du formulaire
-            var form = document.getElementById("devisForm");
-            emailjs.sendForm("service_z5jzmd9", "template_pwmjx9w", form)
-                .then(function() {
-                    alert("Votre demande de devis a été envoyée avec succès !");
-                    form.reset(); // Réinitialiser le formulaire après envoi
-                }, function(error) {
-                    alert("Erreur lors de l'envoi de votre demande : " + JSON.stringify(error));
-                });
-        }
-
-        // Ajouter un écouteur d'événements au formulaire
-        document.addEventListener("DOMContentLoaded", function() {
-            document.getElementById("devisForm").addEventListener("submit", sendEmail);
-        });
     </script>
 </head>
 <body>
-    <!-- En-tête avec le logo et la navigation -->
     <header>
         <div class="header-content">
             <img src="images/logo.png" alt="Logo Décormoi">
             <nav>
-                <a href="index.html" class="cta-button">Accueil</a>
-                <a href="Nos produits.html" class="cta-button">Nos produits</a>
+                <div class="nav-links">
+                    <a href="index.html" class="cta-button">Accueil</a>
+                    <a href="Nos produits.html" class="cta-button">Nos produits</a>
+                </div>
                 <a href="devis.html" class="cta-button">Demander un Devis Gratuit</a>
             </nav>
         </div>
     </header>
 
-    <!-- Section principale avec le formulaire de devis -->
     <main>
-        <h1>Demander un Devis</h1>
-        <form id="devisForm">
-            <label for="from_name">Nom :</label>
-            <input type="text" id="from_name" name="from_name" required>
+        <div class="content">
+            <h1>Demandez votre Devis</h1>
+            <form id="devis-form">
+                <label for="superficie">Superficie de votre cuisine (en m²) :</label>
+                <input type="number" id="superficie" name="superficie" required>
+                
+                <label for="email">Votre Email :</label>
+                <input type="email" id="email" name="email" required>
 
-            <label for="from_email">Email :</label>
-            <input type="email" id="from_email" name="from_email" required>
+                <label for="message">Message :</label>
+                <textarea id="message" name="message" rows="4"></textarea>
 
-            <label for="area">Superficie de la cuisine (m²) :</label>
-            <input type="number" id="area" name="area" required>
-
-            <label for="message">Message :</label>
-            <textarea id="message" name="message" required></textarea>
-
-            <button type="submit" class="cta-button">Envoyer la demande</button>
-        </form>
+                <button type="submit" class="cta-button">Envoyer le Devis</button>
+            </form>
+        </div>
     </main>
 
-    <!-- Pied de page -->
     <footer>
         <p>Suivez-nous sur : <a href="https://www.instagram.com/decormoi__">Instagram</a> | <a href="https://www.facebook.com/profile.php?id=100095484092149&mibextid=LQQJ4d&_rdc=1&_rdr">Facebook</a></p>
     </footer>
+
+    <script>
+        document.getElementById('devis-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            emailjs.sendForm('service_z5jzmd9', 'template_pwmjx9w', this)
+                .then(function() {
+                    alert('Votre demande a été envoyée avec succès !');
+                }, function(error) {
+                    alert('Une erreur est survenue. Veuillez réessayer. ' + JSON.stringify(error));
+                });
+        });
+    </script>
 </body>
 </html>
