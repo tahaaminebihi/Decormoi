@@ -5,50 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nos Produits - Décormoi</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="lightbox.css"> <!-- Lien vers le CSS de Lightbox -->
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <img src="images/logo.png" alt="Logo Décormoi">
-            <nav>
-                <div class="nav-links">
-                    <a href="index.html" class="cta-button">Accueil</a>
-                    <a href="nos-produits.html" class="cta-button">Nos produits</a>
-                </div>
-                <a href="devis.html" class="cta-button">Demander un Devis Gratuit</a>
-            </nav>
-        </div>
-    </header>
+    <!-- En-tête avec le logo et la navigation -->
+    <div class="header">
+        <img src="images/logo.png" alt="Logo Décormoi">
+        <nav>
+            <div class="nav-links">
+                <a href="index.html" class="cta-button">Accueil</a>
+                <a href="Nos produits.html" class="cta-button">Nos produits</a>
+            </div>
+            <a href="devis.html" class="cta-button">Demander un Devis Gratuit</a>
+        </nav>
+    </div>
 
-    <main>
+    <!-- Section des produits -->
+    <div class="products">
         <h1>Nos Produits</h1>
         <div class="gallery">
-            <img src="images/image1.jpg" alt="Image 1" class="gallery-item" onclick="openModal(this)">
-            <img src="images/image2.jpg" alt="Image 2" class="gallery-item" onclick="openModal(this)">
-            <img src="images/image3.jpg" alt="Image 3" class="gallery-item" onclick="openModal(this)">
-            <img src="images/image4.jpg" alt="Image 4" class="gallery-item" onclick="openModal(this)">
-            <img src="images/image5.jpg" alt="Image 5" class="gallery-item" onclick="openModal(this)">
-            <img src="images/image7.jpg" alt="Image 7" class="gallery-item" onclick="openModal(this)">
+            <a href="images/image1.jpg" class="lightbox">
+                <img src="images/image1_thumb.jpg" alt="Image 1">
+            </a>
+            <a href="images/image2.jpg" class="lightbox">
+                <img src="images/image2_thumb.jpg" alt="Image 2">
+            </a>
+            <a href="images/image3.jpg" class="lightbox">
+                <img src="images/image3_thumb.jpg" alt="Image 3">
+            </a>
+            <a href="images/image4.jpg" class="lightbox">
+                <img src="images/image4_thumb.jpg" alt="Image 4">
+            </a>
+            <a href="images/image5.jpg" class="lightbox">
+                <img src="images/image5_thumb.jpg" alt="Image 5">
+            </a>
+            <a href="images/image6.jpg" class="lightbox">
+                <img src="images/image6_thumb.jpg" alt="Image 6">
+            </a>
+            <a href="images/image7.jpg" class="lightbox">
+                <img src="images/image7_thumb.jpg" alt="Image 7">
+            </a>
         </div>
+    </div>
 
-        <div id="modal" class="modal" onclick="this.style.display='none'">
-            <span class="close">&times;</span>
-            <img class="modal-content" id="modal-img">
-            <div id="caption"></div>
-        </div>
-    </main>
-
-    <footer>
+    <!-- Pied de page -->
+    <div class="footer">
         <p>Suivez-nous sur : <a href="https://www.instagram.com/decormoi__">Instagram</a> | <a href="https://www.facebook.com/profile.php?id=100095484092149&mibextid=LQQJ4d&_rdc=1&_rdr">Facebook</a></p>
-    </footer>
+    </div>
 
-    <script>
-        function openModal(element) {
-            var modal = document.getElementById("modal");
-            var modalImg = document.getElementById("modal-img");
-            modal.style.display = "block";
-            modalImg.src = element.src;
-        }
-    </script>
+    <script src="lightbox.js"></script> <!-- Lien vers le script JavaScript de Lightbox -->
 </body>
 </html>
